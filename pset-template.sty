@@ -19,6 +19,7 @@
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
+\newcommand{\coursename}[1]{\renewcommand{\coursename}{#1}}
 \newcommand{\psetnumber}[1]{\renewcommand{\psetnumber}{#1}}
 \newcommand{\collaborators}[1]{\renewcommand{\collaborators}{#1}}
 \newcommand{\ifnotext}[2]{
@@ -108,7 +109,7 @@
 \lhead{Problem \arabic{subsection}}
 \chead{} 
 \rhead{\thepage} 
-\lfoot{\small\scshape CS 221} 
+\lfoot{\small\scshape \coursename} 
 \cfoot{} 
 \rfoot{\footnotesize PS \psetnumber}
 \renewcommand{\headrulewidth}{.3pt} 
@@ -116,9 +117,10 @@
 \renewcommand{\qedsymbol}{$\blacksquare$}
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \newcommand{\dotitle}[3]{
+\coursename{#1}
 \psetnumber{#2}
 \collaborators{#3}
-\title{#1: Homework \psetnumber}
+\title{\coursename: Homework \psetnumber}
 \author{Roshan Padaki\ifnotext{\collaborators}{\footnote{Collaborated with: \collaborators.}}}
 \date{\today}
 \maketitle
