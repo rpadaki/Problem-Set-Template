@@ -1,0 +1,128 @@
+\ProvidesPackage{pset-template}[2018/1/31 Problem Set Template]
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{dsfont}
+\usepackage[T1]{fontenc}
+\usepackage[sc,osf]{mathpazo}
+\linespread{1.025}
+\usepackage{kpfonts}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usetikzlibrary{decorations.markings}
+\usepackage{graphicx,ctable,booktabs}
+\usepackage{microtype}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\newcommand{\psetnumber}[1]{\renewcommand{\psetnumber}{#1}}
+\newcommand{\collaborators}[1]{\renewcommand{\collaborators}{#1}}
+\newcommand{\ifnotext}[2]{
+    \sbox0{#1}
+    \ifdim\wd0=0pt
+        {}
+    \else
+        {#2}
+    \fi
+}
+\renewcommand*{\Re}{\operatorname{Re}}
+\renewcommand*{\Im}{\operatorname{Im}}
+\renewcommand*{\hom}{\operatorname{Hom}}
+\newcommand*{\ch}{\operatorname{ch}}
+\newcommand*{\oldbigwedge}{\bigwedge}
+\newcommand*{\bwedge}{\textstyle\oldbigwedge}
+\newcommand*{\Sym}{\operatorname{Sym}}
+\newcommand*{\ndo}{\operatorname{End}}
+\newcommand*{\spn}{\operatorname{Span}}
+\newcommand*{\sgn}{\operatorname{sgn}}
+\newcommand*{\eps}{\varepsilon}
+\newcommand*{\tr}{\operatorname{tr}}
+\newcommand*{\pf}{\operatorname{Pf}}
+\newcommand*{\GL}{\operatorname{GL}}
+\newcommand*{\stab}{\operatorname{Stab}}
+\newcommand*{\orb}{\operatorname{Orb}}
+\newcommand*{\Res}{\operatorname{Res}}
+\newcommand*{\im}{\operatorname{im}}
+\newcommand*{\id}{\mathds{1}}
+\newcommand*{\Id}{\operatorname{Id}}
+\newcommand*{\rk}{\operatorname{rk}}
+\newcommand*{\Tor}{\operatorname{Tor}}
+\newcommand*{\Torsion}{\operatorname{Torsion}}
+\newcommand*{\Ext}{\operatorname{Ext}^1}
+\newcommand*{\conj}[1]{\overline{#1}}
+\newcommand*{\clos}[1]{\overline{#1}}
+\newcommand*{\comp}[1]{#1^{c}}
+\newcommand*{\ol}[1]{\overline{#1}}
+\newcommand*{\tn}[1]{\textnormal{#1}}
+\newcommand*{\pd}[1]{\widehat{#1}}
+\newcommand*{\bs}[1]{\mathbb{#1}}
+\newcommand*{\bdry}{\partial}
+\newcommand*{\cc}[1]{\bm{\mathsf{#1}}}
+\newcommand*{\wt}[1]{\widetilde{#1}}
+\makeatletter
+\def\der#1{\def\tempa{#1}\futurelet\next\der@i}
+\def\der@i{\ifx\next\bgroup\expandafter\der@ii\else\expandafter\der@end\fi}
+\def\der@ii#1{\frac{d\tempa}{d#1}}
+\def\der@end{\frac{d}{d\tempa}}
+\makeatother
+\makeatletter
+\def\pder#1{\def\tempa{#1}\futurelet\next\pder@i}
+\def\pder@i{\ifx\next\bgroup\expandafter\pder@ii\else\expandafter\pder@end\fi}
+\def\pder@ii#1{\frac{\partial\tempa}{\partial#1}}
+\def\pder@end{\frac{\partial}{\partial\tempa}}
+\makeatother
+\DeclareMathOperator*{\bigplus}{\text{\Large $+$}}
+\DeclarePairedDelimiterX{\inp}[2]{\langle}{\rangle}{#1, #2}
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
+\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{#1}
+\DeclarePairedDelimiterX{\sqnorm}[1]{\llbracket}{\rrbracket}{#1}
+
+\makeatletter
+\newenvironment{badproblem}{\@startsection
+    {subsection}
+    {2}
+    {-.2em}
+    {-3.5ex plus -1ex minus -.2ex}
+    {2.3ex plus .2ex}
+    {\pagebreak[3]
+    \large\bf\noindent{Problem }
+    }
+    }
+    {\begin{center}\large\bf \ldots\ldots\ldots\end{center}}
+\makeatother
+\makeatletter
+\newenvironment{ctcd}{\begin{center}\begin{tikzcd}}{\end{tikzcd}\end{center}}
+\newenvironment{problem}[1][\unskip]{\begin{badproblem}{#1}}{\end{badproblem}}
+\makeatother
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{defn}{Definition}
+
+\pagestyle{fancy}
+\lhead{Problem \arabic{subsection}}
+\chead{} 
+\rhead{\thepage} 
+\lfoot{\small\scshape CS 221} 
+\cfoot{} 
+\rfoot{\footnotesize PS \psetnumber}
+\renewcommand{\headrulewidth}{.3pt} 
+\renewcommand{\footrulewidth}{.3pt}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\newcommand{\dotitle}[3]{
+\psetnumber{#2}
+\collaborators{#3}
+\title{#1: Homework \psetnumber}
+\author{Roshan Padaki\ifnotext{\collaborators}{\footnote{Collaborated with: \collaborators.}}}
+\date{\today}
+\maketitle
+\thispagestyle{empty}
+}
+\setlength\voffset{-0.25in}
+\setlength\textheight{648pt}
