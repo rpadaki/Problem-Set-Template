@@ -1,2 +1,2 @@
 # Problem-Set-Template
-This is a poorly made LaTeX package I made to make my problem sets look nice.
+This is a poorly made LaTeX package I made to make my problem sets look nice. There are lots of dependencies that I'm not willing to list or enforce, and, if I am being completely honest, I don't know how to install it on anything other than Unix. You probably could just use this by putting it in the same directory as your .tex file, but don't sue me if I'm wrong. The package name is just pset-template, and usepackage should work. I'm uploading this as a favor to a friend; don't read too far into this.
